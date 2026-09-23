@@ -1,0 +1,29 @@
+{
+  "name": "backend-toolkit-baas",
+  "version": "0.1.0",
+  "description": "An open-source collection of reusable backend packages and utilities designed to simplify backend development.",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "cli/*"
+  ],
+  "scripts": {
+    "build": "tsc --build",
+    "typecheck": "tsc --noEmit",
+    "test": "echo \"TODO: Configure test runner\"",
+    "lint": "echo \"TODO: Configure ESLint\""
+  },
+  "keywords": [
+    "backend",
+    "baas",
+    "backend-toolkit",
+    "open-source",
+    "typescript",
+    "nodejs"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}

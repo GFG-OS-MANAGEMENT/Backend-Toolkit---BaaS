@@ -1,0 +1,12 @@
+{
+  "name": "@gfg-backend/logger",
+  "version": "0.1.0",
+  "description": "Logging utilities for Backend Toolkit - BaaS.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": ["backend", "logger", "logging", "baas"],
+  "license": "MIT"
+}

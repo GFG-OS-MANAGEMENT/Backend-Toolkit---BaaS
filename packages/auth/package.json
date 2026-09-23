@@ -1,0 +1,12 @@
+{
+  "name": "@gfg-backend/auth",
+  "version": "0.1.0",
+  "description": "Authentication utilities for Backend Toolkit - BaaS.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": ["backend", "auth", "authentication", "baas"],
+  "license": "MIT"
+}

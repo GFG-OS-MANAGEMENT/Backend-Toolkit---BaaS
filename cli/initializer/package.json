@@ -1,0 +1,19 @@
+{
+  "name": "create-gfg-backend",
+  "version": "0.1.0",
+  "description": "CLI initializer for Backend Toolkit - BaaS.",
+  "main": "dist/index.js",
+  "bin": {
+    "create-gfg-backend": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "cli",
+    "initializer",
+    "backend",
+    "baas"
+  ],
+  "license": "MIT"
+}

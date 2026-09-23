@@ -1,0 +1,12 @@
+{
+  "name": "@gfg-backend/errors",
+  "version": "0.1.0",
+  "description": "Error handling utilities for Backend Toolkit - BaaS.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": ["backend", "errors", "baas"],
+  "license": "MIT"
+}

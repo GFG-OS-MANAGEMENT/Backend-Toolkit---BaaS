@@ -1,0 +1,12 @@
+{
+  "name": "@gfg-backend/validation",
+  "version": "0.1.0",
+  "description": "Validation utilities for Backend Toolkit - BaaS.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": ["backend", "validation", "baas"],
+  "license": "MIT"
+}

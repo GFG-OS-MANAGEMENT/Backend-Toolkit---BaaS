@@ -1,0 +1,12 @@
+{
+  "name": "@gfg-backend/config",
+  "version": "0.1.0",
+  "description": "Configuration utilities for Backend Toolkit - BaaS.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": ["backend", "config", "configuration", "baas"],
+  "license": "MIT"
+}

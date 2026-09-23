@@ -1,0 +1,12 @@
+{
+  "name": "@gfg-backend/database",
+  "version": "0.1.0",
+  "description": "Database utilities for Backend Toolkit - BaaS.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": ["backend", "database", "baas"],
+  "license": "MIT"
+}
