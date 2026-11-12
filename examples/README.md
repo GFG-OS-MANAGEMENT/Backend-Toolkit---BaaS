@@ -21,27 +21,22 @@ Create an example demonstrating database integration.
 
 ### Full Toolkit
 
-This example shows how an API could combine configuration, validation,
-authentication, database access, logging, and shared error handling in one
-request. It uses a user registration endpoint as the example:
+A complete standalone example project is available in the [`full-toolkit`](./full-toolkit) directory.
 
-1. Load the application's database configuration.
-2. Validate the incoming registration data and return a validation error if it
-   is invalid.
-3. Authenticate the request before accessing protected resources.
-4. Save the new user with the database package.
-5. Log successful creation and convert unexpected failures to a shared error
-   response.
+It shows how an application combines configuration, validation, authentication, database access, logging, and shared error handling in one cohesive workflow:
 
-The packages currently contain API scaffolding, and several functions are not
-implemented yet. The following is an integration sketch showing the intended
-responsibilities; it is not executable against the current package versions.
+1. **Config**: Load application and database configurations with `@gfg-backend/config`.
+2. **Validation**: Validate incoming registration payloads using `@gfg-backend/validation`.
+3. **Authentication**: Enforce security and authentication policies via `@gfg-backend/auth`.
+4. **Database**: Store user records with `@gfg-backend/database`.
+5. **Logger**: Log operations and failures using `@gfg-backend/logger`.
+6. **Errors**: Handle domain errors and serialize responses using `@gfg-backend/errors`.
 
 ```ts
 import { loadConfig } from "@gfg-backend/config";
 import { authenticate } from "@gfg-backend/auth";
 import { connectDatabase } from "@gfg-backend/database";
-import { BaseError, ValidationError } from "@gfg-backend/errors";
+import { BaseError, ValidationError, serializeError } from "@gfg-backend/errors";
 import { createLogger } from "@gfg-backend/logger";
 import { validate } from "@gfg-backend/validation";
 
@@ -56,7 +51,7 @@ async function registerUser(input: unknown) {
       throw new ValidationError(result.errors.join(", "));
     }
 
-    // Protect this operation according to the application's auth policy.
+    // Protect this operation according to the application's auth policy
     authenticate();
 
     const user = await db.users.create(input);
@@ -71,7 +66,4 @@ async function registerUser(input: unknown) {
 }
 ```
 
-In a complete application, the database adapter and logger methods would be
-provided by their respective packages, and authentication would enforce the
-endpoint's access policy. See each package directory for its current API and
-implementation status.
+For the complete standalone runnable project files, directory structure, and instructions, see [`examples/full-toolkit`](./full-toolkit/README.md).

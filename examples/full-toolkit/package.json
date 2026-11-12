@@ -1,0 +1,20 @@
+{
+  "name": "full-toolkit-example",
+  "version": "0.1.0",
+  "description": "Example application demonstrating multiple Backend Toolkit - BaaS packages working together.",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@gfg-backend/auth": "*",
+    "@gfg-backend/config": "*",
+    "@gfg-backend/database": "*",
+    "@gfg-backend/errors": "*",
+    "@gfg-backend/logger": "*",
+    "@gfg-backend/validation": "*"
+  }
+}
