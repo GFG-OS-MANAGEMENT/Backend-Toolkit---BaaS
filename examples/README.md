@@ -25,18 +25,18 @@ A complete standalone example project is available in the [`full-toolkit`](./ful
 
 It shows how an application combines configuration, validation, authentication, database access, logging, and shared error handling in one cohesive workflow:
 
-1. **Config**: Load application and database configurations with `@gfg-backend/config`.
+1. **Config**: Load application configurations with `@gfg-backend/config`.
 2. **Validation**: Validate incoming registration payloads using `@gfg-backend/validation`.
 3. **Authentication**: Enforce security and authentication policies via `@gfg-backend/auth`.
-4. **Database**: Store user records with `@gfg-backend/database`.
-5. **Logger**: Log operations and failures using `@gfg-backend/logger`.
-6. **Errors**: Handle domain errors and serialize responses using `@gfg-backend/errors`.
+4. **Database**: Manage data persistence with the `@gfg-backend/database` adapter (simulated while adapter CRUD utilities are in development).
+5. **Logger**: Log operations and diagnostic events using `@gfg-backend/logger`.
+6. **Errors**: Handle domain errors using `@gfg-backend/errors`.
 
 ```ts
 import { loadConfig } from "@gfg-backend/config";
 import { authenticate } from "@gfg-backend/auth";
 import { connectDatabase } from "@gfg-backend/database";
-import { BaseError, ValidationError, serializeError } from "@gfg-backend/errors";
+import { BaseError, ValidationError } from "@gfg-backend/errors";
 import { createLogger } from "@gfg-backend/logger";
 import { validate } from "@gfg-backend/validation";
 
@@ -54,13 +54,11 @@ async function registerUser(input: unknown) {
     // Protect this operation according to the application's auth policy
     authenticate();
 
-    const user = await db.users.create(input);
-    logger.info("User registered", { userId: user.id });
-    return user;
+    // In a complete implementation, this calls db adapter methods:
+    // const user = await db.users.create(input);
+    return { success: true };
   } catch (error) {
     if (error instanceof BaseError) throw error;
-
-    logger.error("User registration failed", { error });
     throw new BaseError("Unable to register user");
   }
 }
