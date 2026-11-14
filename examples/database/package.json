@@ -14,5 +14,8 @@
     "@gfg-backend/database": "*",
     "@gfg-backend/errors": "*",
     "@gfg-backend/logger": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6"
   }
 }

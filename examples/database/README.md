@@ -4,7 +4,7 @@ This example demonstrates how to integrate the **`@gfg-backend/database`** packa
 
 - **`@gfg-backend/database`**: Connects to the database and provides the database adapter for managing records.
 - **`@gfg-backend/config`**: Supplies configuration parameters for database connection strings and credentials.
-- **`@gfg-backend/logger`**: Logs database transactions and queries.
+- **`@gfg-backend/logger`**: Represents structured operational logging.
 - **`@gfg-backend/errors`**: Standardizes error handling with application errors.
 
 > **Note on Storage Implementation:**

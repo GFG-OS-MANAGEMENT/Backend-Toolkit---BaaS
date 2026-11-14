@@ -29,6 +29,7 @@ export class PostRepository {
     try {
       this.logger = createLogger();
     } catch {
+      // Logger package is currently a skeleton in early development
       this.logger = {} as Logger;
     }
 
@@ -37,6 +38,7 @@ export class PostRepository {
       const dbConfig = config ?? (loadConfig() as unknown as DatabaseConfig);
       this.db = connectDatabase(dbConfig);
     } catch {
+      // Database package is currently a skeleton in early development
       this.db = {} as DatabaseAdapter;
     }
   }
@@ -102,6 +104,14 @@ export class PostRepository {
       console.error(`[ERROR] Failed to delete post:`, error);
       throw new BaseError("Database delete operation failed");
     }
+  }
+
+  getDatabaseAdapter(): DatabaseAdapter {
+    return this.db;
+  }
+
+  getLogger(): Logger {
+    return this.logger;
   }
 }
 
