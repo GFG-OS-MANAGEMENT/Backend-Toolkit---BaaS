@@ -28,7 +28,7 @@ export class UserService {
   private config: AppConfig;
   private db: DatabaseAdapter;
   private logger: Logger;
-  // Simulated storage store used while @gfg-backend/database is in early development
+  // Simulated store used while @gfg-backend/database CRUD utilities are in development
   private simulatedStore: Map<string, UserRecord> = new Map();
 
   constructor(customConfig?: AppConfig) {
@@ -39,7 +39,7 @@ export class UserService {
     try {
       this.logger = createLogger();
     } catch {
-      // Package skeleton fallback
+      // Logger package is currently a skeleton in early development
       this.logger = {} as Logger;
     }
 
@@ -48,7 +48,7 @@ export class UserService {
       const dbConfig = this.config as unknown as DatabaseConfig;
       this.db = connectDatabase(dbConfig);
     } catch {
-      // Package skeleton fallback
+      // Database package is currently a skeleton in early development
       this.db = {} as DatabaseAdapter;
     }
   }
@@ -69,7 +69,9 @@ export class UserService {
         throw new ValidationError("Validation failed: email and name are required");
       }
 
-      // 5. Authentication: Enforce security and authentication policy
+      // 5. Authentication: Check credentials / access policy
+      // Note: authenticate() is currently a parameterless stub in @gfg-backend/auth.
+      // In production, this will enforce token/session validation or user credentials.
       authenticate();
 
       // 6. Database: Store the user entity via the database adapter
@@ -82,7 +84,7 @@ export class UserService {
       };
       this.simulatedStore.set(user.id, user);
 
-      // 7. Logger: Log successful operation
+      // 7. Logging: Log successful operation
       console.log(`[INFO] Successfully registered user: ${user.id} (${user.email})`);
 
       return {
@@ -105,6 +107,14 @@ export class UserService {
 
   getSimulatedStore(): Map<string, UserRecord> {
     return this.simulatedStore;
+  }
+
+  getDatabaseAdapter(): DatabaseAdapter {
+    return this.db;
+  }
+
+  getLogger(): Logger {
+    return this.logger;
   }
 }
 

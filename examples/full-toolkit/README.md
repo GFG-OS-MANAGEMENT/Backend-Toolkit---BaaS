@@ -6,7 +6,7 @@ This example demonstrates how to integrate multiple **Backend Toolkit - BaaS** p
 - **`@gfg-backend/validation`**: Validates request input data.
 - **`@gfg-backend/auth`**: Enforces security policies and identity verification.
 - **`@gfg-backend/database`**: Connects and manages data persistence via the database adapter.
-- **`@gfg-backend/logger`**: Provides logging across the application workflow.
+- **`@gfg-backend/logger`**: Represents structured operational logging.
 - **`@gfg-backend/errors`**: Standardizes error handling with custom application errors.
 
 > **Note on Storage Implementation:**
