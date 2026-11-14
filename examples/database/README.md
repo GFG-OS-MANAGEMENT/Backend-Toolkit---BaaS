@@ -2,10 +2,13 @@
 
 This example demonstrates how to integrate the **`@gfg-backend/database`** package into a project alongside other toolkit modules:
 
-- **`@gfg-backend/database`**: Connects to the database and provides the database adapter for queries.
+- **`@gfg-backend/database`**: Connects to the database and provides the database adapter for managing records.
 - **`@gfg-backend/config`**: Supplies configuration parameters for database connection strings and credentials.
 - **`@gfg-backend/logger`**: Logs database transactions and queries.
-- **`@gfg-backend/errors`**: Standardizes error handling (such as `DatabaseError` and `NotFoundError`).
+- **`@gfg-backend/errors`**: Standardizes error handling with application errors.
+
+> **Note on Storage Implementation:**
+> As `@gfg-backend/database` currently provides early scaffolding/stubs in the toolkit, database persistence in this example is demonstrated via in-memory storage alongside the `DatabaseAdapter` connection interface.
 
 ## Structure
 
@@ -20,12 +23,21 @@ database/
 
 ## Running the Example
 
-Run the sample script using `tsx` or `npm`:
+1. **Install dependencies** from the repository root:
+   ```bash
+   npm install
+   ```
 
-```bash
-# From this directory:
-npm start
+2. **Run the example**:
+   ```bash
+   # From the project root:
+   npx tsx examples/database/src/index.ts
 
-# Or using tsx directly from project root:
-npx tsx examples/database/src/index.ts
-```
+   # Or from this directory:
+   npm start
+   ```
+
+3. **Typecheck**:
+   ```bash
+   npm run typecheck
+   ```

@@ -22,13 +22,13 @@ It shows how an application connects to a database and runs CRUD operations usin
 
 1. **Configuration**: Load connection credentials using `@gfg-backend/config`.
 2. **Connection**: Establish the database connection via `connectDatabase`.
-3. **CRUD Operations**: Execute create, read, update, and delete queries.
+3. **CRUD Operations**: Execute create, read, update, and delete operations on records.
 4. **Error Handling**: Handle database operation failures and not-found records gracefully.
 
 ```ts
 import { loadConfig } from "@gfg-backend/config";
 import { connectDatabase } from "@gfg-backend/database";
-import { DatabaseError, NotFoundError } from "@gfg-backend/errors";
+import { BaseError } from "@gfg-backend/errors";
 import { createLogger } from "@gfg-backend/logger";
 
 const config = loadConfig();
@@ -37,16 +37,12 @@ const logger = createLogger();
 
 async function getPost(id: string) {
   try {
-    const post = await db.query("SELECT * FROM posts WHERE id = $1", [id]);
-    if (!post) {
-      throw new NotFoundError(`Post with id "${id}" not found`);
-    }
-    logger.info("Fetched post", { id });
-    return post;
+    // In a complete implementation, this invokes the database adapter:
+    // const post = await db.query("SELECT * FROM posts WHERE id = $1", [id]);
+    return { id, title: "Sample Post" };
   } catch (error) {
-    if (error instanceof NotFoundError) throw error;
-    logger.error("Database query failed", { error });
-    throw new DatabaseError("Failed to fetch post", error);
+    if (error instanceof BaseError) throw error;
+    throw new BaseError("Database query failed");
   }
 }
 ```
