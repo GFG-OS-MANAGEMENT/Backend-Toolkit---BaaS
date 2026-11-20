@@ -8,7 +8,7 @@
     "cli/*"
   ],
   "scripts": {
-    "build": "tsc --build",
+    "build": "npm run build --workspaces --if-present",
     "typecheck": "tsc --noEmit",
     "test": "echo \"TODO: Configure test runner\"",
     "lint": "echo \"TODO: Configure ESLint\""
