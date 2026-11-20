@@ -30,7 +30,12 @@ full-toolkit/
    npm install
    ```
 
-2. **Run the example**:
+2. **Build the packages**:
+   ```bash
+   npm run build
+   ```
+
+3. **Run the example**:
    ```bash
    # From the project root:
    npx tsx examples/full-toolkit/src/index.ts
@@ -39,7 +44,7 @@ full-toolkit/
    npm start
    ```
 
-3. **Typecheck**:
+4. **Typecheck**:
    ```bash
    npm run typecheck
    ```

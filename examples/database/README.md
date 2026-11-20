@@ -28,7 +28,12 @@ database/
    npm install
    ```
 
-2. **Run the example**:
+2. **Build the packages**:
+   ```bash
+   npm run build
+   ```
+
+3. **Run the example**:
    ```bash
    # From the project root:
    npx tsx examples/database/src/index.ts
@@ -37,7 +42,7 @@ database/
    npm start
    ```
 
-3. **Typecheck**:
+4. **Typecheck**:
    ```bash
    npm run typecheck
    ```
